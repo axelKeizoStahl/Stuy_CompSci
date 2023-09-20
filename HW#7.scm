@@ -1,0 +1,35 @@
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname HW#6) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+
+(define (FacesonMoney dollar)
+  (cond
+    ( (= dollar 1) "George Washington")
+    ( (= dollar 2) "Thomas Jefferson")
+    ( (= dollar 5) "Abraham Lincoln")
+    ( (= dollar 10) "Alexander Hamilton")
+    ( (= dollar 20) "Andrew Jackson")
+    ( (= dollar 50) "Ulysses S. Grant")
+    ( (= dollar 100) "Benjamin Franklin")
+    (else "Not a US Dollar")))
+(define (SoundLevels a)
+  (cond
+    ( (> a 130) "above max")
+    ( (= a 130) "Jackhammer")
+    ( (> a 106) "Jackhammer-Gaslawnmower")
+    ( (= a 106) "Gaslawnmower")
+    ( (> a 70) "Gaslawnmower-Alarm Clock")
+    ( (= a 70) "Alarm Clock")
+    ( (> a 40) "Alarm Clock-Quiet Room")
+    ( (= a 40) "Quiet Room")
+    (else "below min")))
+
+(define (TriangleType s1 s2 s3)
+  (cond
+    ( (or (not (number? s1)) (not (number? s2)) (not (number? s3))) "not a number")
+    ( (or (<= (+ s1 s2) s3) (<= (+ s1 s3) s2) (<= (+ s2 s3) s1)) "not a triangle")
+    ( (and (= s1 s2) (= s2 s3)) "equilateral")
+    ( (or (= s1 s2) (= s2 s3) (= s1 s3)) "isosceles")
+    (else "scalene")))
+
+(TriangleType 3 4 5)
+(SoundLevels 73)
+(FacesonMoney 100)
